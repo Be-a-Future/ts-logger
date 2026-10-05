@@ -1,0 +1,48 @@
+{
+  "name": "@bafx/logger",
+  "version": "5.0.0",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "license": "ISC",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build:code": "tsc",
+    "build:docs": "typedoc --out docs src/index.ts --includeVersion",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "build": "npm run build:code && npm run build:docs",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand",
+    "testWithCoverage": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --ci --reporters=default --reporters=jest-junit --coverage --coverageReporters=cobertura",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{js,ts,tsx}' --fix"
+  },
+  "devDependencies": {
+    "@bafx/lint-config": "^3.0.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.19.1",
+    "@types/winston": "^2.4.4",
+    "@types/winston-syslog": "^2.4.0",
+    "eslint": "^10.12.0",
+    "jest": "^30.5.2",
+    "jest-environment-node": "^30.5.2",
+    "jest-junit": "^17.0.0",
+    "ts-jest": "^29.4.14",
+    "typedoc": "^0.28.20",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@bafx/utils": "^1.0.1",
+    "uuid": "^14.0.2",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "winston-syslog": "^2.7.1"
+  },
+  "engines": {
+    "node": ">=24.9.0"
+  },
+  "volta": {
+    "node": "24.15.0"
+  }
+}

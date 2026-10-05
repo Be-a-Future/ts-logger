@@ -1,0 +1,8 @@
+.idea
+build
+junit.xml
+coverage
+docs
+node_modules
+
+tests/tmp
